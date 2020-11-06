@@ -15,12 +15,16 @@
     photoImg.src = data.url;
     return newPhoto;
   };
-  const renderPhotos = (data) => {
+  window.renderPhotos = (data) => {
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < data.length; i++) {
       fragment.appendChild(createPhoto(data[i]));
     }
     picturesContainer.appendChild(fragment);
+    const pictures = picturesContainer.querySelectorAll(`.picture`);
+    for (let i = 0; i < pictures.length; i++) {
+      pictures[i].addEventListener(`click`, () => window.bigPicture.openPopup(i));
+    }
   };
-  setTimeout(renderPhotos, 10000, window.data);
+  // setTimeout(renderPhotos, 3000, window.data);
 })();

@@ -1,7 +1,8 @@
 'use strict';
 (() => {
   const TIMEOUT = 3000;
-  const GET_URL = `https://21.javascript.pages.academy/kekstagram/data`;
+  // const GET_URL = `https://21.javascript.pages.academy/kekstagram/data`;
+  const GET_URL = `https://javascript.pages.academy/kekstagram/data`;
   const RequestMethod = {
     GET: `GET`,
     POST: `POST`,
@@ -34,6 +35,7 @@
   };
   const successLoad = (data) => {
     window.data = data;
+    window.renderPhotos(window.data);
   };
   load(successLoad);
 
